@@ -42,7 +42,7 @@ FROM product_summary
 WHERE total_profit < 0
 ORDER BY total_profit ASC;
 
--- Part B: High sales but low profit (the "silent margin killers" —
+-- Part B: High sales but low profit 
 -- products that look good on a revenue report but aren't earning their keep).
 -- Uses NTILE to bucket products into revenue quartiles, then filters
 -- for top-quartile revenue with bottom-quartile margin.
@@ -98,7 +98,7 @@ FROM state_summary
 ORDER BY total_revenue DESC
 LIMIT 10;
  
--- Regional roll-up (same metrics, grouped one level up)
+-- Regional roll-up 
 SELECT
     region,
     ROUND(SUM(sales)::numeric, 2)   AS total_revenue,
@@ -111,9 +111,6 @@ ORDER BY total_revenue DESC;
 
 
 -- Business Question 4: Who are our most valuable customers?
--- ------------------------------------------------------------
--- CLV (approximated as total historical profit contribution),
--- purchase frequency, average order value, total spend.
 -- NTILE buckets customers into value tiers for easy segmentation.
  
 WITH customer_summary AS (
